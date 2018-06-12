@@ -17,7 +17,7 @@ public class UsersDAO {
 		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection con = pool.getConnection();
 		PreparedStatement ps = null;
-		String query = "Insert into users values(?,?,?,?,?,?)";
+		String query = "Insert into users values(?,?,?,?,?,?,?)";
 		try {
 			ps = con.prepareStatement(query);
 			ps.setNString(1, u.getUsername());
@@ -26,6 +26,7 @@ public class UsersDAO {
 			ps.setString(4, u.getCreditCardType());
 			ps.setString(5, u.getCreditCardNumber());
 			ps.setString(6, u.getCreditCardExpirationDate());
+			ps.setLong(7, u.getCapacityStore());
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
@@ -57,6 +58,7 @@ public class UsersDAO {
 				u.setCreditCardType(rs.getString("CreditCardType"));
 				u.setCreditCardNumber(rs.getString("CreditCardNumber"));
 				u.setCreditCardExpirationDate(rs.getString("CreditCardExpirationDate"));
+				u.setCapacityStore(rs.getLong("Capacity"));
 			}
 			return u;
 
@@ -89,6 +91,7 @@ public class UsersDAO {
 				u.setCreditCardType(rs.getString("CreditCardType"));
 				u.setCreditCardNumber(rs.getString("CreditCardNumber"));
 				u.setCreditCardExpirationDate(rs.getString("CreditCardExpirationDate"));
+				u.setCapacityStore(rs.getLong("Capacity"));
 				lstUser.add(u);
 			}
 			return lstUser;
@@ -129,8 +132,6 @@ public class UsersDAO {
 	}
 
 	public static void main(String[] args) {
-//		insertUser(new User("tipi", "tphuongit524@gmail.com", "d41d8cd98f00b204e9800998ecf8427e", "", "", ""));
-		System.out.println(getListUser());
-//		System.out.println(MD5.encryption("ahihi"));
+		
 	}
 }

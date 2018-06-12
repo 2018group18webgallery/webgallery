@@ -34,6 +34,15 @@ public class User {
 		this.creditCardExpirationDate = "";
 
 	}
+	
+
+	public long getCapacityStore() {
+		return capacityStore;
+	}
+
+	public void setCapacityStore(long capacityStore) {
+		this.capacityStore = capacityStore;
+	}
 
 	public int getUserId() {
 		return userId;
@@ -97,6 +106,10 @@ public class User {
 
 	public void setCreditCardExpirationDate(String creditCardExpirationDate) {
 		this.creditCardExpirationDate = creditCardExpirationDate;
+	}
+	public void increCapcity(long capacity) {
+		this.setCapacityStore(this.getCapacityStore()+capacity);
+		
 	}
 
 	@Override
