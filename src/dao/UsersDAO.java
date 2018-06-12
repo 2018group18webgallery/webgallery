@@ -44,7 +44,7 @@ public class UsersDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String query = "Select * from users where Email=?,Password=?";
+		String query = "Select * from users where Email=? and Password=?";
 		try {
 			ps = con.prepareStatement(query);
 			ps.setString(1, email);
@@ -52,6 +52,7 @@ public class UsersDAO {
 			rs = ps.executeQuery();
 			User u = new User();
 			while (rs.next()) {
+				u.setUserId(rs.getInt("UserId"));
 				u.setUsername(rs.getNString("Username"));
 				u.setEmail(rs.getString("Email"));
 				u.setPassword(rs.getString("Password"));
@@ -105,6 +106,39 @@ public class UsersDAO {
 		}
 		return null;
 	}
+//	public static User getUser() {
+//		ConnectionPool pool = ConnectionPool.getInstance();
+//		Connection con = pool.getConnection();
+//		PreparedStatement ps = null;
+//		ResultSet rs = null;
+//		
+//		String query = "Select * from users ";
+//		try {
+//			ps = con.prepareStatement(query);
+//			rs = ps.executeQuery();
+//			List<User> lstUser = new ArrayList<>();
+//			while (rs.next()) {
+//				User u = new User();
+//				u.setUsername(rs.getNString("Username"));
+//				u.setEmail(rs.getString("Email"));
+//				u.setPassword(rs.getString("Password"));
+//				u.setCreditCardType(rs.getString("CreditCardType"));
+//				u.setCreditCardNumber(rs.getString("CreditCardNumber"));
+//				u.setCreditCardExpirationDate(rs.getString("CreditCardExpirationDate"));
+//				u.setCapacityStore(rs.getLong("Capacity"));
+//				lstUser.add(u);
+//			}
+//			return lstUser;
+//			
+//		} catch (SQLException e) {
+//			System.out.println(e);
+//		} finally {
+//			DBUtil.closeResultSet(rs);
+//			DBUtil.closePrepareStatement(ps);
+//			pool.freeConnection(con);
+//		}
+//		return null;
+//	}
 
 	public static boolean isExist(String email) {
 		ConnectionPool pool = ConnectionPool.getInstance();
@@ -132,6 +166,7 @@ public class UsersDAO {
 	}
 
 	public static void main(String[] args) {
+		System.out.println(login("tphuongit524@gmail.com", MD5.encryption("ahihi1997^")));
 		
 	}
 }

@@ -1,4 +1,5 @@
 
+<%@page import="model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -74,6 +75,12 @@ footer {
 	</div>
 	</nav>
 	 --%>
+	<%
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			user = new User();
+		}
+	%>
 	<%@include file="menu.jsp"%>
 
 	<!--profile-header-->
@@ -92,7 +99,9 @@ footer {
 				</a>
 			</div>
 			<div class="profile-header__content">
-				<h1 class="profile-header__title">Min An</h1>
+				<h1 class="profile-header__title"><%=user.getUsername()%></h1>
+
+				<!-- Edit by tphuong -->
 				<button
 					class="btn-follow js-follow js-follow-206851 profile-header__button"
 					data-user-id="206851" data-follow-track-label="profile"
