@@ -36,8 +36,8 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 
-	<%@ include file="header.jsp" %>
-	<%@ include file="menu.jsp" %>
+		<%@ include file="header.jsp"%>
+		<%@ include file="menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -89,16 +89,17 @@
 						</div>
 
 						<div class="box-footer clearfix">
-							<input type="submit" class="pull-right btn btn-info" value="Thêm sản phẩm">
+							<input type="submit" class="pull-right btn btn-info"
+								value="Thêm sản phẩm">
 						</div>
 					</form>
 				</div>
 			</div>
-			
+
 			<div class="box box-info">
 				<div class="box-header">
 					<i class="fa fa-shopping-bag"></i>
-					<h3 class="box-title">Cập nhật Sản Phẩm</h3>
+					<h3 class="box-title">Cập nhật </h3>
 					<!-- tools box -->
 					<div class="pull-right box-tools">
 						<button type="button" class="btn btn-info btn-sm"
@@ -109,16 +110,16 @@
 					<!-- /. tools -->
 				</div>
 				<%
-				String id = (String)request.getParameter("idProduct");
-				if (id == null){
-					id ="";
-				}
+					String id = (String) request.getParameter("idProduct");
+					if (id == null) {
+						id = "";
+					}
 				%>
 				<div class="box-body">
 					<form action="../UpdateProductAdmin" method="get">
 						<div class="form-group">
 							<input type="text" class="form-control" name="id"
-								value="<%=id %>" placeholder="id sản phẩm cần cập nhật ...">
+								value="<%=id%>" placeholder="id sản phẩm cần cập nhật ...">
 						</div>
 						<div class="form-group">
 							<input type="text" class="form-control" name="price"
@@ -130,7 +131,8 @@
 						</div>
 
 						<div class="box-footer clearfix">
-							<input type="submit" class="pull-right btn btn-primary" value="cập nhật sản phẩm">
+							<input type="submit" class="pull-right btn btn-primary"
+								value="cập nhật sản phẩm">
 						</div>
 					</form>
 				</div>
@@ -144,11 +146,7 @@
 			<!-- /.content-wrapper -->
 		</div>
 		<!-- Main Footer -->
-		<footer class="main-footer"> <!-- To the right -->
-		<div class="pull-right hidden-xs">Anything you want</div>
-		<!-- Default to the left --> <strong>Thiết Kế &copy; 2017 <a
-			href="#">Bảo Lee</a>.
-		</strong> Nhằm mục đích học tập. </footer>
+		<%@ include file="footer.jsp"%>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark"> <!-- Create the tabs -->

@@ -12,7 +12,7 @@ import java.util.List;
 import model.User;
 import tool.MD5;
 
-public class UserDB {
+public class UsersDAO {
 	public static boolean insertUser(User u) {
 		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection con = pool.getConnection();

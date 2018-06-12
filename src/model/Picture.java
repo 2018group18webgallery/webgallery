@@ -7,21 +7,23 @@ package model;
  *
  */
 public class Picture {
-	private int pictureId;
+	private long pictureCode;
 	private String pictureName;
 	private String pictureType;
 	private long capacity;
 
-	public Picture(int pictureId, String pictureName, String pictureType, long capacity) {
+	public Picture(long pictureId, String pictureName, String pictureType, long capacity) {
 		super();
-		this.pictureId = pictureId;
+		this.pictureCode = pictureId;
 		this.pictureName = pictureName;
 		this.pictureType = pictureType;
 		this.capacity = capacity;
 	}
+
 	public Picture() {
-		
+
 	}
+
 	public String getPictureType() {
 		return pictureType;
 	}
@@ -38,12 +40,12 @@ public class Picture {
 		this.pictureName = pictureName;
 	}
 
-	public int getPictureId() {
-		return pictureId;
+	public long getPictureCode() {
+		return pictureCode;
 	}
 
-	public void setPictureId(int pictureId) {
-		this.pictureId = pictureId;
+	public void setPictureCode(long pictureId) {
+		this.pictureCode = pictureId;
 	}
 
 	public long getCapacity() {

@@ -51,5 +51,13 @@
 		<servlet-name>ServiceManagerServlet</servlet-name>
 		<url-pattern>/ServiceManager*</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>AccountServlet</servlet-name>
+		<servlet-class>controller.AccountServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AccountServlet</servlet-name>
+		<url-pattern>/Account</url-pattern>
+	</servlet-mapping>
 	
 </web-app>

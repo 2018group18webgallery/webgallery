@@ -75,8 +75,10 @@
 		</ul>
 		<div class="upload-form"
 			onclick="document.querySelector('.custom-file-input').click()">
-			<button class="btn  btn-primary">Browse</button>
-			<strong class="upload-form__or">or drag &amp; drop</strong> <input
+			<a href="<%=request.getContextPath()%>/Account " name="action"
+				value="upload">
+				<button class="btn  btn-primary">Browse</button>
+			</a> <strong class="upload-form__or">or drag &amp; drop</strong> <input
 				type="file" class="hidden custom-file-input"
 				accept="image/jpg, image/jpeg, image/png, video/mp4, video/quicktime, video/x-ms-wmv, video/x-msvideo, video/x-ms-wmv, video/x-flv, video/3gpp"
 				multiple="">
@@ -84,7 +86,7 @@
 
 	</div>
 	<div class="js-photo-upload-list upload-list l-row"></div>
-	<form method="post" action="/upload/"
+	<form method="post" action="/Account"
 		class="js-submit-form upload-submit">
 		<input type="hidden" name="authenticity_token" id="authenticity_token"
 			value="EFe4xXD/krUJDg+Gx6JkTwIL/l9+sqckSKSNYCsGukSNd34+WrIW0o72pDZgX6LKpEysF5421UyuTORAOKibDw==">

@@ -9,6 +9,7 @@ import java.util.List;
 
 import model.Category;
 import model.Picture;
+
 /**
  * 
  * @author tphuong
@@ -57,7 +58,7 @@ public class CategoryDAO {
 			while (rs.next()) {
 				Picture pro = new Picture();
 				pro.setCapacity(rs.getLong("Capacity"));
-				pro.setPictureId(rs.getInt("PictureId"));
+				pro.setPictureCode(rs.getLong("PictureId"));
 				pro.setPictureName(rs.getString("PictureName"));
 				pro.setPictureType(rs.getString("PictureType"));
 				products.add(pro);
@@ -115,6 +116,31 @@ public class CategoryDAO {
 			pool.freeConnection(con);
 		}
 
+	}
+
+	public static void insertPicture(Picture p,int userId) {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = pool.getConnection();
+		PreparedStatement ps = null;
+		String query = "Insert into picture values(?,?,?,?,?)";
+		try {
+			ps = con.prepareStatement(query);
+			ps.setLong(1, p.getPictureCode());
+			ps.setString(2, p.getPictureName());
+			ps.setString(3, p.getPictureType());
+			ps.setLong(4, p.getCapacity());
+			ps.setInt(5, userId);
+			ps.executeUpdate();
+
+			return;
+		} catch (
+
+		SQLException e) {
+			System.out.println(e);
+		} finally {
+			DBUtil.closePrepareStatement(ps);
+			pool.freeConnection(con);
+		}
 	}
 
 	public static void insertCategory(String name) {

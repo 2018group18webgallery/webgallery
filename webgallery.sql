@@ -51,11 +51,16 @@ drop table category;
 -----------------------------------------Picture-----------------------------
 create table picture(
 PictureId int identity(1,1) primary key,
-PictureCode varchar(100),
+PictureCode bigint,
 Capacity bigint ,
-CategoryId int
+CategoryId int,
+UserId int not null,
+foreign key (UserId) references users(UserId),
 foreign key (CategoryId) references category(CategoryId)
 );
+
+drop table picture;
+
 ------------------------------------Service-------------------------
 create table services(
 ServiceId int identity(1,1) primary key,

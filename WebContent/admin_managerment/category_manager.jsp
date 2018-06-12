@@ -5,7 +5,7 @@
 <%@page import="model.Service"%>
 <%@page import="model.User"%>
 <%@page import="java.util.List"%>
-<%@page import="dao.UserDB"%>
+<%@page import="dao.UsersDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
